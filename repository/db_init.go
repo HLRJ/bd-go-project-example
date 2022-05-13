@@ -13,7 +13,7 @@ var (
 	rwMutex       sync.RWMutex //读写锁
 )
 
-func Init(filePath string) error {
+func Init(filePath string) error { //调用下面两个函数
 	if err := initTopicIndexMap(filePath); err != nil {
 		return err
 	}

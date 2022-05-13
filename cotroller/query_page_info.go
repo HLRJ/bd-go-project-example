@@ -11,6 +11,7 @@ type PageData struct {
 	Msg  string      `json:"msg"`
 	Data interface{} `json:"data"`
 }
+
 func QueryPageInfo(topicIdStr string) *PageData {
 	topicId, err := strconv.ParseInt(topicIdStr, 10, 64)
 	if err != nil {
@@ -21,12 +22,12 @@ func QueryPageInfo(topicIdStr string) *PageData {
 	}
 	pageInfo, err := service.QueryPageInfo(topicId)
 	if err != nil {
-		return &PageData{
+		return &PageData{ //返回错误信息
 			Code: -1,
 			Msg:  err.Error(),
 		}
 	}
-	return &PageData{
+	return &PageData{ // 返回成功和正确的信息
 		Code: 0,
 		Msg:  "success",
 		Data: pageInfo,

@@ -53,7 +53,7 @@ func (f *QueryPageInfoFlow) prepareInfo() error { //将信息封装到QueryPageI
 	//获取topic信息
 	var wg sync.WaitGroup
 	wg.Add(2)
-	go func() {
+	go func() { //获取话题和回复信息程序中使用了go协程来并行获取提高相应速度
 		defer wg.Done()
 		topic := repository.NewTopicDaoInstance().QueryTopicById(f.topicId)
 		f.topic = topic

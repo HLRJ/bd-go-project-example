@@ -17,8 +17,8 @@ type PostDao struct {
 // 在channel里面，空结构体 与 channel 可谓是一个经典组合，有时候我们只是需要一个信号来控制程序的运行逻辑，并不在意其内容如何
 
 var (
-	postDao  *PostDao //空结构体的指针
-	postOnce sync.Once
+	postDao  *PostDao  //空结构体的指针
+	postOnce sync.Once //Do里面的内容 只执行一次
 )
 
 func NewPostDaoInstance() *PostDao {
